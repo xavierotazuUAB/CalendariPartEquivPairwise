@@ -184,6 +184,44 @@ class SecondsCalculatorTest
 		ValorsIncorrectesException(0,2,2100,0,0,0);
 		ValorsIncorrectesException(30,2,2000,0,0,0);
 		
+		
+			// PAIRWISE TESTING
+			// Hem vist a classe que fer TOTS els casos de test utilitzant particions equivalents
+			// i valors limit i frontera genera un nombre de casos de prova massa elevat. Per tant,
+			// decidim fer pairwise testing d'alguns paràmetres. Només en fem pels paràmetres
+			// dia, mes i any, utilizant els valors de l'exercici que es proposa:
+		
+			// dia: 28, 29, 30, 31, 32
+			// mes: 2, 3, 4
+			// any: 2001, 2004, 1900, 2000
+		
+		long ndies_fins_2000 = 366*5+365*15;
+		long ndies_fins_2001 = 366*6+365*15;
+		long ndies_fins_2004 = 366*6+365*18;
+		
+		assertEquals(calc.SegonsFins(28,3,2004,0,0,0),(ndies_fins_2004+31+29+27)*lSegonsPerDia);
+//		assertEquals(calc.SegonsFins(28,4,1900,0,0,0),(0)*lSegonsPerDia);
+		assertEquals(calc.SegonsFins(28,2,2000,0,0,0),(ndies_fins_2000+31+27)*lSegonsPerDia);
+		assertEquals(calc.SegonsFins(28,3,2001,0,0,0),(ndies_fins_2001+31+28+27)*lSegonsPerDia);
+//		assertEquals(calc.SegonsFins(29,3,1900,0,0,0),(0)*lSegonsPerDia);
+		assertEquals(calc.SegonsFins(29,4,2000,0,0,0),(ndies_fins_2000+31+29+31+28)*lSegonsPerDia);
+		assertEquals(calc.SegonsFins(29,3,2001,0,0,0),(ndies_fins_2001+31+28+28)*lSegonsPerDia);
+		assertEquals(calc.SegonsFins(29,2,2004,0,0,0),(ndies_fins_2004+31+28)*lSegonsPerDia);
+		assertEquals(calc.SegonsFins(30,4,2001,0,0,0),(ndies_fins_2001+31+28+31+29)*lSegonsPerDia);
+		assertEquals(calc.SegonsFins(30,3,2004,0,0,0),(ndies_fins_2004+31+29+29)*lSegonsPerDia);
+//		assertEquals(calc.SegonsFins(30,2,1900,0,0,0),(0)*lSegonsPerDia);
+		assertEquals(calc.SegonsFins(30,3,2000,0,0,0),(ndies_fins_2000+31+29+29)*lSegonsPerDia);
+		assertEquals(calc.SegonsFins(31,2,2004,0,0,0),(ndies_fins_2004+31+29+30)*lSegonsPerDia);
+//		assertEquals(calc.SegonsFins(31,3,1900,0,0,0),(0)*lSegonsPerDia);
+		assertEquals(calc.SegonsFins(31,2,2000,0,0,0),(ndies_fins_2000+30)*lSegonsPerDia);
+		assertEquals(calc.SegonsFins(31,4,2001,0,0,0),(ndies_fins_2001+31+20+31+30)*lSegonsPerDia);
+		
+		ValorsIncorrectesException(32,3,2000,0,0,0);
+		ValorsIncorrectesException(32,2,2001,0,0,0);
+		ValorsIncorrectesException(32,3,2001,0,0,0);
+		ValorsIncorrectesException(32,4,2004,0,0,0);
+//		assertEquals(calc.SegonsFins(32,2,1900,0,0,0),);
+
 	}
 
 
