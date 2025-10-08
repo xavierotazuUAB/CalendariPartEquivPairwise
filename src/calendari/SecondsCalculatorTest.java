@@ -211,10 +211,11 @@ class SecondsCalculatorTest
 		assertEquals(calc.SegonsFins(30,3,2004,0,0,0),(ndies_fins_2004+31+29+29)*lSegonsPerDia);
 //		assertEquals(calc.SegonsFins(30,2,1900,0,0,0),(0)*lSegonsPerDia);
 		assertEquals(calc.SegonsFins(30,3,2000,0,0,0),(ndies_fins_2000+31+29+29)*lSegonsPerDia);
-		assertEquals(calc.SegonsFins(31,2,2004,0,0,0),(ndies_fins_2004+31+29+30)*lSegonsPerDia);
+
+		ValorsIncorrectesException(31,2,2004,0,0,0);
 //		assertEquals(calc.SegonsFins(31,3,1900,0,0,0),(0)*lSegonsPerDia);
-		assertEquals(calc.SegonsFins(31,2,2000,0,0,0),(ndies_fins_2000+30)*lSegonsPerDia);
-		assertEquals(calc.SegonsFins(31,4,2001,0,0,0),(ndies_fins_2001+31+20+31+30)*lSegonsPerDia);
+		ValorsIncorrectesException(31,2,2000,0,0,0);
+		ValorsIncorrectesException(31,4,2001,0,0,0);
 		
 		ValorsIncorrectesException(32,3,2000,0,0,0);
 		ValorsIncorrectesException(32,2,2001,0,0,0);
