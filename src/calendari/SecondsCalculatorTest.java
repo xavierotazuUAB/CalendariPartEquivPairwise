@@ -226,7 +226,11 @@ class SecondsCalculatorTest
 		ValorsIncorrectesException(32,4,2004,0,0,0);
 		ValorsIncorrectesException(32,2,2100,0,0,0);
 
+		// Any invalid
+		ValorsIncorrectesException(1,2,1979,0,0,0);
+		ValorsIncorrectesException(1,2,1940,0,0,0);
 		ValorsIncorrectesException(1,2,1900,0,0,0);
+		ValorsIncorrectesException(1,2,1600,0,0,0);
 
 	}
 
