@@ -8,6 +8,17 @@ import org.junit.jupiter.api.Test;
 class SecondsCalculatorTest
 {
 	SecondsCalculator calc;
+
+	void ValorsIncorrectesException(int dia, int mes, int any, int hora, int minut, int segon)
+	{
+		try
+		{
+			calc.SegonsFins(dia, mes, any, hora, minut, segon);
+			assertTrue(false);
+		}
+		catch (Exception e){}
+
+	}
 	
 	@BeforeEach
 	void setUp() throws Exception
@@ -133,143 +144,45 @@ class SecondsCalculatorTest
 			// Control valors paràmetres d'entrada
 
 		// Segons fora de rang
-		try
-		{
-			calc.SegonsFins(1,1,1981,0,0,-1);
-			assertTrue(false);
-		}
-		catch (Exception e){}
-
-		try
-		{
-			calc.SegonsFins(1,1,1981,0,0,60);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
+		ValorsIncorrectesException(1,1,1981,0,0,-1);
+		ValorsIncorrectesException(1,1,1981,0,0,60);
 
 		// Minuts fora de rang
-		try
-		{
-			calc.SegonsFins(1,1,1981,0,-1,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
-		try
-		{
-			calc.SegonsFins(1,1,1981,0,60,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
+		ValorsIncorrectesException(1,1,1981,0,-1,0);
+		ValorsIncorrectesException(1,1,1981,0,60,0);
 
 		// Hores fora de rang
-		try
-		{
-			calc.SegonsFins(1,1,1981,-1,0,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
-		try
-		{
-			calc.SegonsFins(1,1,1981,24,0,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
-
+		ValorsIncorrectesException(1,1,1981,-1,0,0);
+		ValorsIncorrectesException(1,1,1981,24,0,0);
 	
 		// Mes fora de rang
-		try
-		{
-			calc.SegonsFins(1,0,1981,0,0,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
-		try
-		{
-			calc.SegonsFins(1,13,1981,0,0,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
+		ValorsIncorrectesException(1,0,1981,0,0,0);
+		ValorsIncorrectesException(1,13,1981,0,0,0);
 
 		// Dies fora de rang
 		// Mes de 31 dies
-		try
-		{
-			calc.SegonsFins(0,1,1981,0,0,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
-		try
-		{
-			calc.SegonsFins(32,1,1981,0,0,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
-		// Mes de 30 dies
-		try
-		{
-			calc.SegonsFins(0,4,1981,0,0,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
-		try
-		{
-			calc.SegonsFins(31,4,1981,0,0,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}		
-		// Mes de febrer anys de no traspas
-		try
-		{
-			calc.SegonsFins(0,2,1981,0,0,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
-		try
-		{
-			calc.SegonsFins(29,2,1981,0,0,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
-		// Mes de febrer anys de traspas multiple de 4
-		try
-		{
-			calc.SegonsFins(0,2,1984,0,0,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
-		try
-		{
-			calc.SegonsFins(30,2,1984,0,0,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
-		// Mes de febrer anys de traspas multiple de 100
-		try
-		{
-			calc.SegonsFins(0,2,2100,0,0,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
-		try
-		{
-			calc.SegonsFins(29,2,2100,0,0,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
-		// Mes de febrer anys de traspas multiple de 400
-		try
-		{
-			calc.SegonsFins(0,2,2100,0,0,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
-		try
-		{
-			calc.SegonsFins(30,2,2000,0,0,0);
-			assertTrue(false);			
-		}
-		catch (Exception e){}
+		ValorsIncorrectesException(0,1,1981,0,0,0);
+		ValorsIncorrectesException(32,1,1981,0,0,0);
 		
+		// Mes de 30 dies
+		ValorsIncorrectesException(0,4,1981,0,0,0);
+		ValorsIncorrectesException(31,4,1981,0,0,0);
+		
+		// Mes de febrer anys de no traspas
+		ValorsIncorrectesException(0,2,1981,0,0,0);
+		ValorsIncorrectesException(29,2,1981,0,0,0);
+
+		// Mes de febrer anys de traspas multiple de 4
+		ValorsIncorrectesException(0,2,1984,0,0,0);
+		ValorsIncorrectesException(30,2,1984,0,0,0);
+
+		// Mes de febrer anys de traspas multiple de 100
+		ValorsIncorrectesException(0,2,2100,0,0,0);
+		ValorsIncorrectesException(29,2,2100,0,0,0);
+
+		// Mes de febrer anys de traspas multiple de 400
+		ValorsIncorrectesException(0,2,2100,0,0,0);
+		ValorsIncorrectesException(30,2,2000,0,0,0);
 		
 	}
 
