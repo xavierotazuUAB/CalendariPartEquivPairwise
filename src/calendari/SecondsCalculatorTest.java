@@ -193,7 +193,7 @@ class SecondsCalculatorTest
 		
 			// dia: 28, 29, 30, 31, 32
 			// mes: 2, 3, 4
-			// any: 2001, 2004, 1900, 2000
+			// any: 2001, 2004, 2100, 2000
 		
 		long ndies_fins_2000 = 366*5+365*15;
 		long ndies_fins_2001 = 366*6+365*15;
@@ -224,7 +224,9 @@ class SecondsCalculatorTest
 		ValorsIncorrectesException(32,2,2001,0,0,0);
 		ValorsIncorrectesException(32,3,2001,0,0,0);
 		ValorsIncorrectesException(32,4,2004,0,0,0);
-		ValorsIncorrectesException(32,2,1900,0,0,0);
+		ValorsIncorrectesException(32,2,2100,0,0,0);
+
+		ValorsIncorrectesException(1,2,1900,0,0,0);
 
 	}
 
