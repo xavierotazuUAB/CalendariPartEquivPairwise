@@ -198,22 +198,25 @@ class SecondsCalculatorTest
 		long ndies_fins_2000 = 366*5+365*15;
 		long ndies_fins_2001 = 366*6+365*15;
 		long ndies_fins_2004 = 366*6+365*18;
+
+		long ndies_cada_20_anys = 366*5+365*15;
+		long ndies_fins_2100 = ndies_cada_20_anys*6;
 		
 		assertEquals(calc.SegonsFins(28,3,2004,0,0,0),(ndies_fins_2004+31+29+27)*lSegonsPerDia);
-//		assertEquals(calc.SegonsFins(28,4,1900,0,0,0),(0)*lSegonsPerDia);
+		assertEquals(calc.SegonsFins(28,4,2100,0,0,0),(ndies_fins_2100+31+28+31+27)*lSegonsPerDia);
 		assertEquals(calc.SegonsFins(28,2,2000,0,0,0),(ndies_fins_2000+31+27)*lSegonsPerDia);
 		assertEquals(calc.SegonsFins(28,3,2001,0,0,0),(ndies_fins_2001+31+28+27)*lSegonsPerDia);
-//		assertEquals(calc.SegonsFins(29,3,1900,0,0,0),(0)*lSegonsPerDia);
+		assertEquals(calc.SegonsFins(29,3,2100,0,0,0),(ndies_fins_2100+31+28+28)*lSegonsPerDia);
 		assertEquals(calc.SegonsFins(29,4,2000,0,0,0),(ndies_fins_2000+31+29+31+28)*lSegonsPerDia);
 		assertEquals(calc.SegonsFins(29,3,2001,0,0,0),(ndies_fins_2001+31+28+28)*lSegonsPerDia);
 		assertEquals(calc.SegonsFins(29,2,2004,0,0,0),(ndies_fins_2004+31+28)*lSegonsPerDia);
 		assertEquals(calc.SegonsFins(30,4,2001,0,0,0),(ndies_fins_2001+31+28+31+29)*lSegonsPerDia);
 		assertEquals(calc.SegonsFins(30,3,2004,0,0,0),(ndies_fins_2004+31+29+29)*lSegonsPerDia);
-//		assertEquals(calc.SegonsFins(30,2,1900,0,0,0),(0)*lSegonsPerDia);
+		ValorsIncorrectesException(30,2,2100,0,0,0);
 		assertEquals(calc.SegonsFins(30,3,2000,0,0,0),(ndies_fins_2000+31+29+29)*lSegonsPerDia);
 
 		ValorsIncorrectesException(31,2,2004,0,0,0);
-//		assertEquals(calc.SegonsFins(31,3,1900,0,0,0),(0)*lSegonsPerDia);
+		assertEquals(calc.SegonsFins(31,3,2100,0,0,0),(ndies_fins_2100+31+28+30)*lSegonsPerDia);
 		ValorsIncorrectesException(31,2,2000,0,0,0);
 		ValorsIncorrectesException(31,4,2001,0,0,0);
 		
@@ -221,7 +224,7 @@ class SecondsCalculatorTest
 		ValorsIncorrectesException(32,2,2001,0,0,0);
 		ValorsIncorrectesException(32,3,2001,0,0,0);
 		ValorsIncorrectesException(32,4,2004,0,0,0);
-//		assertEquals(calc.SegonsFins(32,2,1900,0,0,0),);
+		ValorsIncorrectesException(32,2,1900,0,0,0);
 
 	}
 
