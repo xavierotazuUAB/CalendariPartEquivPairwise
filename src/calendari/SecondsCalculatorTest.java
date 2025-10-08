@@ -184,6 +184,11 @@ class SecondsCalculatorTest
 		ValorsIncorrectesException(0,2,2100,0,0,0);
 		ValorsIncorrectesException(30,2,2000,0,0,0);
 		
+		// Any fora de rang
+		ValorsIncorrectesException(1,2,1979,0,0,0);
+		ValorsIncorrectesException(1,2,1940,0,0,0);
+		ValorsIncorrectesException(1,2,1900,0,0,0);
+		ValorsIncorrectesException(1,2,1600,0,0,0);
 		
 			// PAIRWISE TESTING
 			// Hem vist a classe que fer TOTS els casos de test utilitzant particions equivalents
@@ -226,11 +231,6 @@ class SecondsCalculatorTest
 		ValorsIncorrectesException(32,4,2004,0,0,0);
 		ValorsIncorrectesException(32,2,2100,0,0,0);
 
-		// Any invalid
-		ValorsIncorrectesException(1,2,1979,0,0,0);
-		ValorsIncorrectesException(1,2,1940,0,0,0);
-		ValorsIncorrectesException(1,2,1900,0,0,0);
-		ValorsIncorrectesException(1,2,1600,0,0,0);
 
 	}
 

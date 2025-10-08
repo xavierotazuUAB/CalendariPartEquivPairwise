@@ -29,6 +29,11 @@ public class SecondsCalculator
 			throw new IllegalArgumentException("Dia fora de rang");
 		}
 
+		if(any<1980)
+		{
+			throw new IllegalArgumentException("Any fora de rang");
+		}
+
 		long nSegonsTotal = 0;
 		long nSegonsAny = 0;
 		
